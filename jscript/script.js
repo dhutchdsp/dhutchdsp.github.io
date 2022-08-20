@@ -1,1 +1,4 @@
-alert('Hello, brave new world!');
+"use strict";
+let message = 'type in the prompt';
+alert(message);
+result = prompt(message, "Type here");
