@@ -2,32 +2,24 @@
 <html>
 
 <body>
-    <script src="jscript/script.js"></script>
+    <!--<script src="jscript/script.js"></script> -->
+    <div id="Image"></div>
     <script>
-        function display_image(src, width, height, alt) {
-            var a = document.createElement("img");
-            a.src = src;
-            a.width = width;
-            a.height = height;
-            a.alt = alt;
-            document.body.appendChild(a);
-        }
         "use strict";
+        var img = document.createElement("img");
         let message = 'Meow!';
         alert(message);
         let result = confirm("Meow?", "Type here");
         let image_to_go = "";
         if (!result) {
             alert("Hsssskk 🙀");
-            let image_to_go = "images/IMG_5971.JPG"
+            img.src = "images/IMG_5971.JPG";
         } else {
             alert("prrrrp 😻");
-            let image_to_go = "images/IMG_6818.JPG"
+            img.src = "images/IMG_6818.JPG";
         }
-        display_image(image_to_go,
-            276,
-            110,
-            'Winston');
+        var src = document.getElementById("Image");
+        src.appendChild(img);
     </script>
 
 </body>
