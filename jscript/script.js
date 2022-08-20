@@ -1,4 +1,9 @@
 "use strict";
-let message = 'type in the prompt';
+let message = 'Meow!';
 alert(message);
-result = prompt(message, "Type here");
+let result = confirm("Meow?", "Type here");
+if (!result) {
+    alert("Hsssskk 🙀");
+} else {
+    alert("prrrrp 😻")
+}
