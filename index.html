@@ -3,21 +3,20 @@
 
 <body>
     <!--<script src="jscript/script.js"></script> -->
-    <img id="Image"></img>
+    <div id="Image"></div>
     <script>
         "use strict";
         var img = document.createElement("img");
-        let message = 'Meow!';
-        alert(message);
         let result = confirm("Meow?", "Type here");
         if (!result) {
-            alert("🙀 Hsssskk 🙀");
+            alert("🙀🙀 Hsssskk 🙀🙀");
             img.src = "images/IMG_5971.jpg";
         } else {
-            alert("😻 prrrrp 😻");
+            alert("😻😻 prrrrp 😻😻");
             img.src = "images/IMG_6818.JPG";
         }
-        //document.getElementById("Image").width = "300";
+        document.getElementById("Image").width = "300";
+        document.getElementById("Image").height = "300";
         var src = document.getElementById("Image");
         src.appendChild(img);
     </script>
