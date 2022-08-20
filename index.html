@@ -2,10 +2,33 @@
 <html>
 
 <body>
-
-    <img src="images/IMG_7188.JPG" alt="Winston is cute">
     <script src="jscript/script.js"></script>
-    <img src="images/IMG_6818.JPG" alt="Winston is cute">
+    <script>
+        function display_image(src, width, height, alt) {
+            var a = document.createElement("img");
+            a.src = src;
+            a.width = width;
+            a.height = height;
+            a.alt = alt;
+            document.body.appendChild(a);
+        }
+        "use strict";
+        let message = 'Meow!';
+        alert(message);
+        let result = confirm("Meow?", "Type here");
+        let image_to_go = "";
+        if (!result) {
+            alert("Hsssskk 🙀");
+            let image_to_go = "images/IMG_5971.JPG"
+        } else {
+            alert("prrrrp 😻");
+            let image_to_go = "images/IMG_6818.JPG"
+        }
+        display_image(image_to_go,
+            276,
+            110,
+            'Winston');
+    </script>
 
 </body>
 
