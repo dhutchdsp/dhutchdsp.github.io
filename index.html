@@ -13,16 +13,18 @@
     <script>
         "use strict";
         var img = document.createElement("img");
-        let result = confirm("Meow?", "Type here");
-        if (!result) {
-            alert("🙀🙀🙀 Hsssskk 🙀🙀🙀");
-            img.src = "images/toilet.png";
-        } else {
-            alert("😻😻😻 prrrrp 😻😻😻");
-            img.src = "images/tongue.png";
+        while (true) {
+            let result = confirm("Meow?", "Type here");
+            if (!result) {
+                alert("🙀🙀🙀 Hsssskk 🙀🙀🙀");
+                img.src = "images/toilet.png";
+            } else {
+                alert("😻😻😻 prrrrp 😻😻😻");
+                img.src = "images/tongue.png";
+            }
+            var src = document.getElementById("Image");
+            src.appendChild(img);
         }
-        var src = document.getElementById("Image");
-        src.appendChild(img);
     </script>
 
 </body>
