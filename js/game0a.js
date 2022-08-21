@@ -1,10 +1,10 @@
 class Circle {
-    constructor(color, radius, v) {
+    constructor(imageName, radius, v) {
         this.radius = radius;
         this.v = v;
 
         //let circle = new PIXI.Graphics();
-        let circle = PIXI.Sprite.from('images/DerekShephard.png');
+        let circle = PIXI.Sprite.from(imageName);
         circle.height = radius;
         circle.width = radius
         //circle.beginFill(color);
@@ -57,8 +57,8 @@ class Monster extends Circle {
 }
 
 class Player extends Circle {
-    constructor(color, radius, v) {
-        super(color, radius, v);
+    constructor(imageName, radius, v) {
+        super(imageName, radius, v);
         this.reset();
     }
 
@@ -117,7 +117,7 @@ function shake(className) {
 }
 
 function addMonster() {
-    monsters.push(new Monster(0x79a3b1, Math.random() * 10 + 10, { x: 2 + Math.random(), y: 2 + Math.random() }));
+    monsters.push(new Monster("images/MirandaBailey.png", Math.random() * 10 + 10, { x: 2 + Math.random(), y: 2 + Math.random() }));
 }
 
 function onkeydown(ev) {
@@ -260,8 +260,8 @@ let w = 512, h = 512;
 let app = new PIXI.Application({ width: w, height: h, antialias: true });
 let monsters = [];
 let pressed = {};
-let player = new Player(0xfcf8ec, 40, { x: 0, y: 0 });
-let coin = new Coin(0xfcf8ec, 10, { x: 0, y: 0 });
+let player = new Player("images/MeredithGrey.png", 40, { x: 0, y: 0 });
+let coin = new Coin("images/DerekShephard.png", 10, { x: 0, y: 0 });
 let coins;
 
 app.renderer.backgroundColor = 0x456268;
