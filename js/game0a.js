@@ -3,10 +3,13 @@ class Circle {
         this.radius = radius;
         this.v = v;
 
-        let circle = new PIXI.Graphics();
-        circle.beginFill(color);
-        circle.drawCircle(0, 0, radius);
-        circle.endFill();
+        //let circle = new PIXI.Graphics();
+        let circle = PIXI.Sprite.from('images/DerekShephard.png');
+        circle.height = radius;
+        circle.width = radius
+        //circle.beginFill(color);
+        //circle.drawCircle(0, 0, radius);
+        //circle.endFill();
         circle.x = radius;
         circle.y = radius;
         app.stage.addChild(circle);
@@ -173,44 +176,44 @@ function onkeyup(ev) {
     }
 }
 
-function onspeak(word) {
-    switch (word) {
-        case "left":
-        case "Left":
-            player.v.x = -player.speed;
-            pressed['left'] = true;
-            break;
-
-        case "Right":
-        case "right":
-            player.v.x = player.speed;
-            pressed['right'] = true;
-            break;
-
-        case "Up":
-        case "up":
-            player.v.y = -player.speed;
-            pressed['up'] = true;
-            break;
-
-        case "Down":
-        case "down":
-            player.v.y = player.speed;
-            pressed['down'] = true;
-            break;
-    }
-}
+//function onspeak(word) {
+//    switch (word) {
+//        case "left":
+//        case "Left":
+//            player.v.x = -player.speed;
+//            pressed['left'] = true;
+//            break;
+////
+//        case "Right":
+//        case "right":
+//            player.v.x = player.speed;
+//            pressed['right'] = true;
+//            break;
+//
+//        case "Up":
+//        case "up":
+//            player.v.y = -player.speed;
+//            pressed['up'] = true;
+//            break;
+//
+//        case "Down":
+//        case "down":
+//            player.v.y = player.speed;
+//            pressed['down'] = true;
+//            break;
+//    }
+//}
 
 function setupControls() {
     window.addEventListener("keydown", onkeydown);
     window.addEventListener("keyup", onkeyup);
-    recognition.addEventListener('end', recognition.start);
-    recognition.addEventListener('result', e => {
-        var transcript = e.results[0][0].transcript;
-        if (e.results[0].isFinal) {
-            onspeak(transcript);
-        }
-    });
+    //    recognition.addEventListener('end', recognition.start);
+    //    recognition.addEventListener('result', e => {
+    //        var transcript = e.results[0][0].transcript;
+    //        if (e.results[0].isFinal) {
+    //            onspeak(transcript);
+    //        }
+    //   });
 }
 
 function reset() {
@@ -247,17 +250,17 @@ window.onresize = () => {
     reset();
 }
 
-window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-const recognition = new SpeechRecognition();
-recognition.interimResults = true;
-recognition.lang = 'en-US';
-const words = document.querySelector('.words');
+//window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+//const recognition = new SpeechRecognition();
+//recognition.interimResults = true;
+//recognition.lang = 'en-US';
+//const words = document.querySelector('.words');
 
 let w = 512, h = 512;
 let app = new PIXI.Application({ width: w, height: h, antialias: true });
 let monsters = [];
 let pressed = {};
-let player = new Player(0xfcf8ec, 10, { x: 0, y: 0 });
+let player = new Player(0xfcf8ec, 40, { x: 0, y: 0 });
 let coin = new Coin(0xfcf8ec, 10, { x: 0, y: 0 });
 let coins;
 
@@ -265,5 +268,5 @@ app.renderer.backgroundColor = 0x456268;
 document.querySelector("div#canvas").appendChild(app.view);
 setInterval(gameLoop, 1000 / 60);
 setupControls();
-recognition.start();
+//recognition.start();
 window.onresize();
