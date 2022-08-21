@@ -117,7 +117,7 @@ function shake(className) {
 }
 
 function addMonster() {
-    monsters.push(new Monster("images/MirandaBailey.png", Math.random() * 10 + 10, { x: 2 + Math.random(), y: 2 + Math.random() }));
+    monsters.push(new Monster("images/MirandaBailey.png", Math.random() * 30 + 10, { x: 2 + Math.random(), y: 2 + Math.random() }));
 }
 
 function onkeydown(ev) {
@@ -261,7 +261,7 @@ let app = new PIXI.Application({ width: w, height: h, antialias: true });
 let monsters = [];
 let pressed = {};
 let player = new Player("images/MeredithGrey.png", 40, { x: 0, y: 0 });
-let coin = new Coin("images/DerekShephard.png", 10, { x: 0, y: 0 });
+let coin = new Coin("images/DerekShephard.png", 2, { x: 0, y: 0 });
 let coins;
 
 app.renderer.backgroundColor = 0x456268;
