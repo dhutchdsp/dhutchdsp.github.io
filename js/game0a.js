@@ -144,6 +144,7 @@ function onkeydown(ev) {
             break;
     }
 }
+
 function onkeyup(ev) {
     switch (ev.key) {
         case "ArrowLeft":
@@ -172,11 +173,44 @@ function onkeyup(ev) {
     }
 }
 
+function onspeak(word) {
+    switch (word) {
+        case "left":
+        case "Left":
+            player.v.x = -player.speed;
+            pressed['left'] = true;
+            break;
+
+        case "Right":
+        case "right":
+            player.v.x = player.speed;
+            pressed['right'] = true;
+            break;
+
+        case "Up":
+        case "up":
+            player.v.y = -player.speed;
+            pressed['up'] = true;
+            break;
+
+        case "Down":
+        case "down":
+            player.v.y = player.speed;
+            pressed['down'] = true;
+            break;
+    }
+}
+
 function setupControls() {
     window.addEventListener("keydown", onkeydown);
     window.addEventListener("keyup", onkeyup);
-    window.addEventListener("touchstart", ontouchstart);
-    window.addEventListener("touchend", ontouchend);
+    recognition.addEventListener('end', recognition.start);
+    recognition.addEventListener('result', e => {
+        var transcript = e.results[0][0].transcript;
+        if (e.results[0].isFinal) {
+            onspeak(transcript);
+        }
+    });
 }
 
 function reset() {
@@ -213,6 +247,12 @@ window.onresize = () => {
     reset();
 }
 
+window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const recognition = new SpeechRecognition();
+recognition.interimResults = true;
+recognition.lang = 'en-US';
+const words = document.querySelector('.words');
+
 let w = 512, h = 512;
 let app = new PIXI.Application({ width: w, height: h, antialias: true });
 let monsters = [];
@@ -225,4 +265,5 @@ app.renderer.backgroundColor = 0x456268;
 document.querySelector("div#canvas").appendChild(app.view);
 setInterval(gameLoop, 1000 / 60);
 setupControls();
+recognition.start();
 window.onresize();
